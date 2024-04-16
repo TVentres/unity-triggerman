@@ -10,18 +10,31 @@ public class PlayerMovement : MonoBehaviour
     public float Speed;
     CharacterController Controller;
 
+    private bool canDash = true;
+    public float dashingTime = 0.2f;
+    public float dashingCooldown = 0.5f;
+    public int dashCount = 3;
+
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        Speed = 2f;
-        Controller = GetComponent<CharacterController>();
+		Speed = 2f;
+		Controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
         MovementInput();
+		if (Input.GetKeyDown(KeyCode.Space) && canDash == true && dashCount > 0)
+		{
+            StartCoroutine(Dash());
+		}
+
+        
 	}
 
     void MovementInput()
@@ -32,4 +45,16 @@ public class PlayerMovement : MonoBehaviour
         MoveDirection = transform.forward * VerticalInput + transform.right * HorizontalInput;
         Controller.Move(MoveDirection * Speed * Time.deltaTime);
     }
+
+    IEnumerator Dash()
+    {
+        canDash = false;
+        Speed = 30f;
+        yield return new WaitForSeconds(dashingTime);
+        Speed = 2f;
+        dashCount -= 1;
+        yield return new WaitForSeconds(dashingCooldown);
+        canDash = true;
+
+	}
 }
