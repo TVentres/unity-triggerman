@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     public float dashingTime = 0.2f;
     public float dashingCooldown = 0.5f;
     public int dashCount = 3;
+    public int maxDashCount = 3;
+    public bool onRecharge = false;
+    public int dashRechargeTime = 3;
 
 
 
@@ -55,6 +58,16 @@ public class PlayerMovement : MonoBehaviour
         dashCount -= 1;
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
-
+        if(onRecharge == false)
+        {
+            onRecharge = true;
+            while(dashCount < maxDashCount)
+            {
+            yield return new WaitForSeconds(dashRechargeTime);
+            dashCount++;
+            }
+            onRecharge = false;
+        }
+        
 	}
 }
