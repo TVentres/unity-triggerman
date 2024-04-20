@@ -8,8 +8,8 @@ public class PlayerMovement : MonoBehaviour
     public float HorizontalInput;
     public float VerticalInput;
     public float Speed;
+    public float CurrentSpeed;
     CharacterController Controller;
-
     private bool canDash = true;
     public float dashingTime = 0.2f;
     public float dashingCooldown = 0.5f;
@@ -24,21 +24,22 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		Speed = 2f;
-		Controller = GetComponent<CharacterController>();
+        CurrentSpeed = 5f;
+        Speed = CurrentSpeed;
+        Controller = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
         MovementInput();
-		if (Input.GetKeyDown(KeyCode.Space) && canDash == true && dashCount > 0)
-		{
+        if (Input.GetKeyDown(KeyCode.Space) && canDash == true && dashCount > 0)
+        {
             StartCoroutine(Dash());
-		}
+        }
 
-        
-	}
+
+    }
 
     void MovementInput()
     {
@@ -54,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
         canDash = false;
         Speed = 30f;
         yield return new WaitForSeconds(dashingTime);
-        Speed = 2f;
+        Speed = CurrentSpeed;
         dashCount -= 1;
         yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
@@ -68,6 +69,6 @@ public class PlayerMovement : MonoBehaviour
             }
             onRecharge = false;
         }
-        
-	}
+
+    }
 }
