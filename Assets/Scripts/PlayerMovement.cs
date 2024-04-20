@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrentSpeed = 5f;
+        CurrentSpeed = 15f;
         Speed = CurrentSpeed;
         Controller = GetComponent<CharacterController>();
     }
@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator Dash()
     {
         canDash = false;
-        Speed = 30f;
+        Speed = Speed * 3;
         yield return new WaitForSeconds(dashingTime);
         Speed = CurrentSpeed;
         dashCount -= 1;
