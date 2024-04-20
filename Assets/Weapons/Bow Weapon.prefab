@@ -44,15 +44,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe7e597f9ddc54040b69e134f6713309, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.20000002
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe7e597f9ddc54040b69e134f6713309, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.20000002
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe7e597f9ddc54040b69e134f6713309, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.2
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe7e597f9ddc54040b69e134f6713309, type: 3}
       propertyPath: m_LocalPosition.x
@@ -129,12 +129,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d9d707d0843d6e469a32932d0fd03f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damage: 0
   MaxAmmo: 1
   CurrentAmmo: 0
   FireRate: 0
   ReloadTime: 0.5
   BulletSpawn: {fileID: 307587049}
-  Projectile: {fileID: 0}
+  Projectile: {fileID: 2158920062443728571, guid: e50838e75886516468b0e23f1bdb9ffb, type: 3}
   AmmoText: {fileID: 0}
 --- !u!4 &6494470074259992541 stripped
 Transform:
