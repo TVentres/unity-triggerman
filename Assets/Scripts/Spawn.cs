@@ -12,8 +12,12 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        bool getPermission=GameObject.Find("PlayerPlaceholder").GetComponent<Timer>().canSpawn;
+        Debug.Log(getPermission);
+        //Debug.Log(1);
+        if (getPermission)
         {
+            GameObject.Find("PlayerPlaceholder").GetComponent<Timer>().hasSpawned();
             Spawning();
         }
     }
