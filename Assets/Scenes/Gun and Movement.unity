@@ -734,6 +734,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &732619198 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6199608428395695820, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
+  m_PrefabInstance: {fileID: 1177343447}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &947266560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,6 +1044,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6199608427170983747, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6199608427170983747, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 487.6
+      objectReference: {fileID: 0}
     - target: {fileID: 6199608428395695810, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
       propertyPath: m_SizeDelta.x
       value: 90
@@ -1049,6 +1068,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player UI Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6199608429114309260, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
+      propertyPath: ammoCounterText
+      value: 
+      objectReference: {fileID: 1574201643}
+    - target: {fileID: 6199608429114309260, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
+      propertyPath: coinCounterText
+      value: 
+      objectReference: {fileID: 1187120417}
+    - target: {fileID: 6199608429114309260, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
+      propertyPath: dashCounterText
+      value: 
+      objectReference: {fileID: 732619198}
     - target: {fileID: 6199608429114309262, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1143,6 +1174,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
+--- !u!114 &1187120417 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6199608429135619637, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
+  m_PrefabInstance: {fileID: 1177343447}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1220824766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,7 +1412,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b988c54998d674aa918119bad7b5ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0
   rotation: 0.5
 --- !u!114 &1672009370
 MonoBehaviour:
@@ -1384,8 +1425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acfbb2738e2a62640aaa0505b7a5ac08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value: 0
-  rotation: 0.5
 --- !u!1 &1682250701
 GameObject:
   m_ObjectHideFlags: 0
