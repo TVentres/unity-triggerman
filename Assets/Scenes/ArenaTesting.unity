@@ -21491,7 +21491,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4842439116809427590, guid: de21f57066bdbea45b40d70ee368b086, type: 3}
       propertyPath: m_UseGravity
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5287889416910235091, guid: de21f57066bdbea45b40d70ee368b086, type: 3}
       propertyPath: m_Convex
