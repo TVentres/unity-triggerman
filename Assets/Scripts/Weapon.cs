@@ -15,12 +15,15 @@ public class Weapon : MonoBehaviour
     public Text AmmoText;
     private float FireTimer = 0f;
     private bool Reloading;
+	HUDManager hudManager;
 
 
     void Start()
     {
 		CurrentAmmo = MaxAmmo;
-    }
+		hudManager = FindObjectOfType<HUDManager>();
+		UpdateAmmoText();
+	}
 
     void Update()
     {
@@ -35,6 +38,7 @@ public class Weapon : MonoBehaviour
                 {
                     Shoot();
                     FireTimer = 0f;
+
                 }
             }
             else
@@ -53,7 +57,8 @@ public class Weapon : MonoBehaviour
     {
 		Instantiate(Projectile, BulletSpawn.position, BulletSpawn.rotation);
 		CurrentAmmo = CurrentAmmo - 1;
-    }
+		hudManager.UpdateAmmoText(CurrentAmmo, MaxAmmo);
+	}
 
 	IEnumerator Reload()
 	{
@@ -62,8 +67,14 @@ public class Weapon : MonoBehaviour
             Reloading = true;
 			yield return new WaitForSeconds(ReloadTime);
 			CurrentAmmo = MaxAmmo;
-            Reloading = false;
+			hudManager.UpdateAmmoText(CurrentAmmo, MaxAmmo);
+			Reloading = false;
 		}
 		
+	}
+
+    void UpdateAmmoText()
+    {
+		hudManager.UpdateAmmoText(CurrentAmmo, MaxAmmo);
 	}
 }

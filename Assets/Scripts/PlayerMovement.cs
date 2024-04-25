@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float Speed;
     public float CurrentSpeed;
     CharacterController Controller;
+
     private bool canDash = true;
     public float dashingTime = 0.2f;
     public float dashingCooldown = 0.5f;
@@ -18,19 +20,24 @@ public class PlayerMovement : MonoBehaviour
     public bool onRecharge = false;
     public int dashRechargeTime = 3;
 
+	HUDManager hudManager;
 
 
 
-    // Start is called before the first frame update
-    void Start()
+
+
+	// Start is called before the first frame update
+	void Start()
     {
         CurrentSpeed = 15f;
         Speed = CurrentSpeed;
         Controller = GetComponent<CharacterController>();
-    }
+	    hudManager = FindObjectOfType<HUDManager>();
+        UpdateDashText();
+	}
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
     {
         MovementInput();
         if (Input.GetKeyDown(KeyCode.Space) && canDash == true && dashCount > 0)
@@ -57,7 +64,8 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(dashingTime);
         Speed = CurrentSpeed;
         dashCount -= 1;
-        yield return new WaitForSeconds(dashingCooldown);
+        UpdateDashText();
+		yield return new WaitForSeconds(dashingCooldown);
         canDash = true;
         if(onRecharge == false)
         {
@@ -66,9 +74,15 @@ public class PlayerMovement : MonoBehaviour
             {
             yield return new WaitForSeconds(dashRechargeTime);
             dashCount++;
-            }
+            UpdateDashText();
+			}
             onRecharge = false;
         }
 
     }
+
+    void UpdateDashText()
+    {
+		hudManager.UpdateDashText(maxDashCount, dashCount);
+	}
 }
