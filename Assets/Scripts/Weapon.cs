@@ -25,7 +25,7 @@ public class Weapon : MonoBehaviour
     void Update()
     {
 		FireTimer += Time.deltaTime;
-        Debug.Log(FireTimer);
+        //Debug.Log(FireTimer);
 
         if (FireTimer > FireRate)
         {
