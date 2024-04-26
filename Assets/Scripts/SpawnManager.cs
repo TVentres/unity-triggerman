@@ -95,18 +95,7 @@ public class SpawnManager : MonoBehaviour
     {
         //select a random plane from the available planes in the spawnPlanes array
         Transform plane = spawnPlanes[UnityEngine.Random.Range(0,spawnPlanes.Length)];
-        //get rectTransform of the plane so we can measure it
-        //RectTransform rectTransform = plane.GetComponent<RectTransform>();
-        //find a random position in that plane (not including height)
-        //float randX = UnityEngine.Random.Range( -plane.transform.lossyScale.x , plane.transform.lossyScale.x );
-        //float randZ = UnityEngine.Random.Range( -plane.transform.lossyScale.z , plane.transform.lossyScale.z );
-        //float randX = UnityEngine.Random.Range(rectTransform.rect.xMin , rectTransform.rect.xMax);
-        //float randZ = UnityEngine.Random.Range(rectTransform.rect.zMin , rectTransform.rect.zMax);
-        
-        
 
-        //Spawn game object as a child of the plane.
-        //GameObject obj = Instantiate(enemyObj, Vector3.zero, Quaternion.identity, plane) as GameObject;
 
         
         //get collider for the spawnPlane
@@ -119,9 +108,7 @@ public class SpawnManager : MonoBehaviour
         GameObject obj = Instantiate(enemyObj) as GameObject;
         //Move spawned object to the random spot on the plane.
         obj.transform.position = new Vector3((plane.position.x +randX), 3, (plane.position.z +randZ));
-        
-        // Now unassign the parent
-        //obj.transform.parent = null;
+
     }
 
 }

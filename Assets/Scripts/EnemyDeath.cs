@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDeath : MonoBehaviour
 {
     public GameObject item1;
-    public GameObject thisEnemy;
+    //public GameObject thisEnemy;
     public Transform enemyPos;
     // Start is called before the first frame update
     void update()
