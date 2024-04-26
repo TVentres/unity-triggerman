@@ -27,7 +27,8 @@ public class SpawnManager : MonoBehaviour
         {
             if (currentWave < totalWaves)
             {
-                Spawning();
+                //Spawning();
+                SpawnWave();
                 currentWave++;
             }
         }
@@ -70,4 +71,57 @@ public class SpawnManager : MonoBehaviour
 
 
     }
+
+    public void SpawnWave()
+    {
+        if (currentWave < totalWaves)
+        {
+            for (int i = 0; i < flowerCountPerWave[currentWave]; i++)
+            {
+                SpawnEnemy(obj_slug);
+            }
+            
+            for (int i = 0; i < flowerCountPerWave[currentWave]; i++)
+            {
+                SpawnEnemy(obj_flower);
+            }
+
+            currentWave++;
+        }
+    }
+
+    //spawns enemy of givem type in a random location
+    public void SpawnEnemy(GameObject enemyObj)
+    {
+        //select a random plane from the available planes in the spawnPlanes array
+        Transform plane = spawnPlanes[UnityEngine.Random.Range(0,spawnPlanes.Length)];
+        //get rectTransform of the plane so we can measure it
+        //RectTransform rectTransform = plane.GetComponent<RectTransform>();
+        //find a random position in that plane (not including height)
+        //float randX = UnityEngine.Random.Range( -plane.transform.lossyScale.x , plane.transform.lossyScale.x );
+        //float randZ = UnityEngine.Random.Range( -plane.transform.lossyScale.z , plane.transform.lossyScale.z );
+        //float randX = UnityEngine.Random.Range(rectTransform.rect.xMin , rectTransform.rect.xMax);
+        //float randZ = UnityEngine.Random.Range(rectTransform.rect.zMin , rectTransform.rect.zMax);
+        
+        
+
+        //Spawn game object as a child of the plane.
+        //GameObject obj = Instantiate(enemyObj, Vector3.zero, Quaternion.identity, plane) as GameObject;
+
+        
+        //get collider for the spawnPlane
+        Collider spawnCollider = plane.GetComponent<Collider>();
+        //find a random x and z position in that plane
+        float randX = UnityEngine.Random.Range( -spawnCollider.bounds.extents.x , spawnCollider.bounds.extents.x );
+        float randZ = UnityEngine.Random.Range( -spawnCollider.bounds.extents.z , spawnCollider.bounds.extents.z );
+
+        //Spawn game object
+        GameObject obj = Instantiate(enemyObj) as GameObject;
+        //Move spawned object to the random spot on the plane.
+        obj.transform.position = new Vector3((plane.position.x +randX), 3, (plane.position.z +randZ));
+        
+        // Now unassign the parent
+        //obj.transform.parent = null;
+    }
+
 }

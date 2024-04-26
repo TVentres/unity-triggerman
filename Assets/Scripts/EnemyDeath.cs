@@ -8,6 +8,13 @@ public class EnemyDeath : MonoBehaviour
     public GameObject thisEnemy;
     public Transform enemyPos;
     // Start is called before the first frame update
+    void update()
+    {
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            Die();
+        }
+    }
 
     // Update is called once per frame
     public void Die()
@@ -17,7 +24,7 @@ public class EnemyDeath : MonoBehaviour
         obj.transform.position = new Vector3(enemyPos.position.x, 0.5f, enemyPos.position.z);
 
         // Now unassign the parent
-        obj.transform.parent = null;
-        Destroy(thisEnemy);
+        obj.transform.SetParent(null);
+        Object.Destroy(this.gameObject);
     }
 }
