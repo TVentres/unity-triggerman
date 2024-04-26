@@ -6,26 +6,24 @@ public class Projectile : MonoBehaviour
 {
     public Rigidbody Bullet;
     public float Velocity;
+	public int lifeSpan=2;
 
     void Start()
     {
 		Bullet.AddForce(transform.forward * Velocity * Time.deltaTime, ForceMode.Impulse);
+		Destroy(gameObject,lifeSpan);
 	}
 
-
-	private void OnCollisionEnter(Collision collision)
-	{
-		Destroy(gameObject);
-	}
 
 	void OnTriggerEnter(Collider other) 
     {
  		// Check if the object the player collided with has the "PickUp" tag.
- 		if (other.gameObject.CompareTag("Enemy")) 
+ 		if (other.gameObject.CompareTag("Enemy"))
         {
  			//Call EnemyDeath Script
-			//Debug.Log("This Ran");
+			Debug.Log("This Ran");
             other.gameObject.GetComponent<EnemyDeath>().Die();
         }
+		Destroy(gameObject);
     }
 }

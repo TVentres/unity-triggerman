@@ -27,7 +27,8 @@ public class SpawnManager : MonoBehaviour
         {
             if (currentWave < totalWaves)
             {
-                Spawning();
+                //Spawning();
+                SpawnWave();
                 currentWave++;
             }
         }
@@ -70,4 +71,44 @@ public class SpawnManager : MonoBehaviour
 
 
     }
+
+    public void SpawnWave()
+    {
+        if (currentWave < totalWaves)
+        {
+            for (int i = 0; i < flowerCountPerWave[currentWave]; i++)
+            {
+                SpawnEnemy(obj_slug);
+            }
+            
+            for (int i = 0; i < flowerCountPerWave[currentWave]; i++)
+            {
+                SpawnEnemy(obj_flower);
+            }
+
+            currentWave++;
+        }
+    }
+
+    //spawns enemy of givem type in a random location
+    public void SpawnEnemy(GameObject enemyObj)
+    {
+        //select a random plane from the available planes in the spawnPlanes array
+        Transform plane = spawnPlanes[UnityEngine.Random.Range(0,spawnPlanes.Length)];
+
+
+        
+        //get collider for the spawnPlane
+        Collider spawnCollider = plane.GetComponent<Collider>();
+        //find a random x and z position in that plane
+        float randX = UnityEngine.Random.Range( -spawnCollider.bounds.extents.x , spawnCollider.bounds.extents.x );
+        float randZ = UnityEngine.Random.Range( -spawnCollider.bounds.extents.z , spawnCollider.bounds.extents.z );
+
+        //Spawn game object
+        GameObject obj = Instantiate(enemyObj) as GameObject;
+        //Move spawned object to the random spot on the plane.
+        obj.transform.position = new Vector3((plane.position.x +randX), 3, (plane.position.z +randZ));
+
+    }
+
 }
