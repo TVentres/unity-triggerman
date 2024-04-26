@@ -17,4 +17,15 @@ public class Projectile : MonoBehaviour
 	{
 		Destroy(gameObject);
 	}
+
+	void OnTriggerEnter(Collider other) 
+    {
+ 		// Check if the object the player collided with has the "PickUp" tag.
+ 		if (other.gameObject.CompareTag("Enemy")) 
+        {
+ 			//Call EnemyDeath Script
+			//Debug.Log("This Ran");
+            other.gameObject.GetComponent<EnemyDeath>().Die();
+        }
+    }
 }
