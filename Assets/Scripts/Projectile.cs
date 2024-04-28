@@ -20,6 +20,7 @@ public class Projectile : MonoBehaviour
 
 	void OnTriggerEnter(Collider other) 
     {
+		Destroy(gameObject);
  		// Check if the object the player collided with has the "PickUp" tag.
  		if (other.gameObject.CompareTag("Enemy")) 
         {
