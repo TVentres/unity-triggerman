@@ -7,11 +7,12 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     //public GameObject enemy;
-    public GameObject obj_slug;
+    public GameObject obj_caveBall;
     public GameObject obj_flower;
     
     //a list of spawn locations (These will be behind the spawn doors)
     public Transform[] spawnPlanes = new Transform[2];
+    public Transform ArenaSpawnPlane;
     
     public int currentWave=0;
     public int totalWaves=5;
@@ -39,16 +40,34 @@ public class SpawnManager : MonoBehaviour
         {
             for (int i = 0; i < flowerCountPerWave[currentWave]; i++)
             {
-                SpawnEnemy(obj_slug);
+                SpawnEnemy(obj_caveBall);
             }
             
             for (int i = 0; i < flowerCountPerWave[currentWave]; i++)
             {
-                SpawnEnemy(obj_flower);
+                SpawnCenter(obj_flower);
             }
 
             currentWave++;
         }
+    }
+
+    //spawns enemy of givem type in a random location
+    public void SpawnCenter(GameObject enemyObj)
+    {
+        //select plane
+        Transform plane = ArenaSpawnPlane;
+        //get collider for the spawnPlane
+        Collider spawnCollider = plane.GetComponent<Collider>();
+        //find a random x and z position in that plane
+        float randX = UnityEngine.Random.Range( -spawnCollider.bounds.extents.x , spawnCollider.bounds.extents.x );
+        float randZ = UnityEngine.Random.Range( -spawnCollider.bounds.extents.z , spawnCollider.bounds.extents.z );
+
+        //Spawn game object
+        GameObject obj = Instantiate(enemyObj) as GameObject;
+        //Move spawned object to the random spot on the plane.
+        obj.transform.position = new Vector3((plane.position.x +randX), 3, (plane.position.z +randZ));
+
     }
 
     //spawns enemy of givem type in a random location
