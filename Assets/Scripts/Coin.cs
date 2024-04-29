@@ -5,7 +5,8 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
 
-	public float rotation = 3f;
+	public float rotation = 0.5f;
+	public AudioSource PickupAudio;
 
 	// Start is called before the first frame update
 	void Start()
@@ -25,6 +26,7 @@ public class Coin : MonoBehaviour
 		{
 			HUDManager hudManager = FindObjectOfType<HUDManager>();
 			hudManager.AddCoin();
+			AudioSource.PlayClipAtPoint(PickupAudio.clip, transform.position);
 			Destroy(gameObject);
 		}
 	}

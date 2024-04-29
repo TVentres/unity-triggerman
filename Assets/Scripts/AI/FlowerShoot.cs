@@ -12,6 +12,7 @@ public class FlowerShoot : MonoBehaviour
 	private GameObject target;
 	private float delayTimer = 0.0f;
 	private bool canShoot = true;
+	public AudioSource ShootAudio;
 
 	void Start()
 	{
@@ -40,6 +41,8 @@ public class FlowerShoot : MonoBehaviour
 
 	void Shoot(Vector3 targetPosition)
 	{
+		ShootAudio.Play();
+
 		Rigidbody bulletInstance = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
 
 		Vector3 direction = (targetPosition - transform.position).normalized;
