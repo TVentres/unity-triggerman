@@ -29,47 +29,8 @@ public class SpawnManager : MonoBehaviour
             {
                 //Spawning();
                 SpawnWave();
-                currentWave++;
             }
         }
-    }
-
-    public void Spawning()
-    {
-        
-        //select a random plane from the available planes in the spawnPlanes array
-        Transform plane = spawnPlanes[UnityEngine.Random.Range(0,spawnPlanes.Length)];
-        
-        // Spawn the object as a child of the plane.
-        //GameObject obj = Instantiate(enemy, Vector3.zero, Quaternion.identity, plane) as GameObject;
-        
-        // Spawn a number of slugs depending on current wave
-        for (int i = 0; i < flowerCountPerWave[currentWave]; i++)
-        {
-            // Spawn game object as a child of the plane.
-            GameObject obj = Instantiate(obj_slug, Vector3.zero, Quaternion.identity, plane) as GameObject;
-            
-            //Place object in center of plain
-            obj.transform.position = new Vector3(plane.position.x, 3, plane.position.z);
-            
-            // Now unassign the parent
-            obj.transform.parent = null;
-        }
-
-        // Spawn a number of flowers depending on current wave
-        for (int i = 0; i < flowerCountPerWave[currentWave]; i++)
-        {
-            // Spawn game object as a child of the plane.
-            GameObject obj = Instantiate(obj_flower, Vector3.zero, Quaternion.identity, plane) as GameObject;
-            
-            //Place object in center of plain
-            obj.transform.position = new Vector3(plane.position.x, 3, plane.position.z);
-
-            // Now unassign the parent
-            obj.transform.parent = null;
-        }
-
-
     }
 
     public void SpawnWave()
