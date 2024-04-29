@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Coin : MonoBehaviour
+public class HealPickup : MonoBehaviour
 {
 
 	public float rotation = 0.5f;
+	public float HealValue = 10f;
 	public AudioSource PickupAudio;
 
 	// Start is called before the first frame update
@@ -25,7 +26,7 @@ public class Coin : MonoBehaviour
 		if (other.gameObject.CompareTag("Player"))
 		{
 			HUDManager hudManager = FindObjectOfType<HUDManager>();
-			hudManager.AddCoin();
+			hudManager.Heal(HealValue);
 			AudioSource.PlayClipAtPoint(PickupAudio.clip, transform.position);
 			Destroy(gameObject);
 		}

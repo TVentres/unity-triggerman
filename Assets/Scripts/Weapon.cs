@@ -16,6 +16,9 @@ public class Weapon : MonoBehaviour
     private float FireTimer = 0f;
     private bool Reloading;
 	HUDManager hudManager;
+    public float ClipLength;
+    public AudioSource ShootAudio;
+
 
 
     void Start()
@@ -55,6 +58,15 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
+		Debug.Log("Shooting...");
+		if (ShootAudio != null)
+		{
+			ShootAudio.Play();
+		}
+		else
+		{
+			Debug.LogWarning("ShootAudio is null!");
+		}
 		Instantiate(Projectile, BulletSpawn.position, BulletSpawn.rotation);
 		CurrentAmmo = CurrentAmmo - 1;
 		hudManager.UpdateAmmoText(CurrentAmmo, MaxAmmo);

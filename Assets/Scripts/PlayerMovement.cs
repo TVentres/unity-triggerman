@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public int maxDashCount = 3;
     public bool onRecharge = false;
     public int dashRechargeTime = 3;
-
+    public AudioSource dashEffect;
 	HUDManager hudManager;
 
 
@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     {
         canDash = false;
         Speed = Speed * 3;
+        dashEffect.Play();
         yield return new WaitForSeconds(dashingTime);
         Speed = CurrentSpeed;
         dashCount -= 1;
