@@ -79,6 +79,8 @@ public class HUDManager : MonoBehaviour
 	public void LoadGameOver()
 	{
 		SceneManager.LoadScene("GameOver");
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.None;
 	}
 }
 
