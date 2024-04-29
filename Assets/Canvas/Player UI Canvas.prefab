@@ -639,11 +639,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0237c1be5e0732445ae44229f477f51f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 6199608427170378392}
-  ammoCountText: {fileID: 6199608427170983745}
-  goldCountText: {fileID: 6199608429135619637}
-  waveCountText: {fileID: 6199608427628418984}
-  dashCountText: {fileID: 6199608428395695820}
+  coinCounterText: {fileID: 6199608429135619637}
+  ammoCounterText: {fileID: 6199608427170983745}
+  dashCounterText: {fileID: 6199608428395695820}
 --- !u!1 &6199608429135619638
 GameObject:
   m_ObjectHideFlags: 0

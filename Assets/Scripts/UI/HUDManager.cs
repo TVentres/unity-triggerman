@@ -1,46 +1,86 @@
 using UnityEngine;
-using UnityEngine.UI; 
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class HUDManager : MonoBehaviour
 {
-	public Slider healthBar; 
-	public Text ammoCountText;
-	public Text goldCountText;
-	public Text waveCountText;
-	public Text dashCountText;
+	public Text coinCounterText;
+	private int coinCount = 0;
+
+	private float MaxHealth = 100f;
+	private float PlayerHealth = 100f;
+	public Slider HealthSlider;
+
+	public Text ammoCounterText;
+	public Text dashCounterText;
+	public Text waveCounterText;
 
 	void Start()
 	{
-		UpdateHealth(100); // Set initial health
-		UpdateAmmo(30); // Set initial ammo
-		UpdateDash(3);
-		UpdateGold(0);
-		UpdateWave(0);
-	}
-	// Call this method to update health display
-	public void UpdateHealth(int newHealth)
-	{
-		healthBar.value = newHealth;
-	}
-	// Call this method to update ammo display
-	public void UpdateAmmo(int newAmmo)
-	{
-		ammoCountText.text = "Ammo: " + newAmmo;
+		HealthSlider.value = 50f;
+		coinCounterText.text = "Coins: " + coinCount;
 	}
 
-	public void UpdateDash(int newDash)
+
+	void Update()
 	{
-		dashCountText.text = "Dashes: " + newDash;
+		if (Input.GetKeyDown(KeyCode.N))
+		{
+			TakeDamage(10f);
+		}
 	}
 
-	public void UpdateGold(int newGold)
+	public void AddCoin()
 	{
-		goldCountText.text = "Gold: " + newGold;
+		coinCount++;
+		coinCounterText.text = "Coins: " + coinCount;
 	}
 
-	public void UpdateWave(int newWave)
+	public void Heal(float HealAmount)
 	{
-		waveCountText.text = "Wave: " + newWave; 
+		PlayerHealth += HealAmount;
+
+		if (PlayerHealth > MaxHealth)
+		{
+			PlayerHealth = MaxHealth;
+		}
+		HealthSlider.value = PlayerHealth / MaxHealth;
+	}
+
+	public void UpdateAmmoText(int currentAmmo, int maxAmmo)
+	{
+		ammoCounterText.text = "Ammo: " + currentAmmo + " / " + maxAmmo;
+	}
+
+	public void UpdateDashText(int MaxDashes, int Dashes)
+	{
+		dashCounterText.text = "Dashes: " + Dashes + " / " + MaxDashes;
+	}
+
+	public void UpdateWaveText(int CurrentWave, int MaxWaves)
+	{
+		waveCounterText.text = "Wave: " + CurrentWave + " / " + MaxWaves;
+	}
+
+	public void TakeDamage(float damageAmount)
+	{
+		PlayerHealth -= damageAmount; 
+
+		if (PlayerHealth < 0)
+		{
+			PlayerHealth = 0;
+			LoadGameOver();
+		}
+
+		HealthSlider.value = PlayerHealth / MaxHealth;
+	}
+
+	public void LoadGameOver()
+	{
+		SceneManager.LoadScene("GameOver");
+		Cursor.visible = true;
+		Cursor.lockState = CursorLockMode.None;
 	}
 }
+

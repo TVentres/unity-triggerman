@@ -5,27 +5,26 @@ using UnityEngine;
 public class EnemyDeath : MonoBehaviour
 {
     public GameObject item1;
-    public GameObject thisEnemy;
+    //public GameObject thisEnemy;
     public Transform enemyPos;
     // Start is called before the first frame update
-
-    // Update is called once per frame
-    void Update()
+    void update()
     {
         if(Input.GetKeyDown(KeyCode.N))
         {
             Die();
         }
     }
-    void Die()
+
+    // Update is called once per frame
+    public void Die()
     {
-        thisEnemy.SetActive(false);
-
         GameObject obj = Instantiate(item1, Vector3.zero, Quaternion.identity, enemyPos) as GameObject;
-
+        
         obj.transform.position = new Vector3(enemyPos.position.x, 0.5f, enemyPos.position.z);
 
         // Now unassign the parent
-        obj.transform.parent = null;
+        obj.transform.SetParent(null);
+        Object.Destroy(this.gameObject);
     }
 }
