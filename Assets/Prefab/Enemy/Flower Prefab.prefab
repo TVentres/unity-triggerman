@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7638711168747208460}
   - component: {fileID: 7638711168747208461}
   - component: {fileID: 7638711168747208463}
+  - component: {fileID: 4431930854915925273}
   m_Layer: 0
   m_Name: Flower Prefab
   m_TagString: Enemy
@@ -26,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7638711168747208458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.684395, y: 2.23, z: -7.8080864}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0, y: 3.67, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7638711168912114215}
   - {fileID: 7638711169213176005}
@@ -61,8 +62,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item1: {fileID: 0}
-  thisEnemy: {fileID: 0}
-  enemyPos: {fileID: 0}
+--- !u!95 &4431930854915925273
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7638711168747208458}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4ab97ba45e2cc6e4e8342418ff299b7a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7638711168912114212
 GameObject:
   m_ObjectHideFlags: 0
