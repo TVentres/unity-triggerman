@@ -56,6 +56,7 @@ public class SpawnManager : MonoBehaviour
 			}
 
 			currentWave++;
+			WaveChangeAudio.Play();
 			UpdateWaveText();
 		}
 	}
