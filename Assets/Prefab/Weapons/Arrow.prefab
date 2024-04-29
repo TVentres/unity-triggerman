@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet: {fileID: 921860078533008514}
   Velocity: 9000
+  lifeSpan: 2
 --- !u!54 &921860078533008514
 Rigidbody:
   m_ObjectHideFlags: 0
