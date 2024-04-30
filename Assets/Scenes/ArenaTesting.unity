@@ -8874,7 +8874,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027918502937747753, guid: 9d15b7b71226489458ebb5731eeadd8a, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4879724312840572355, guid: 9d15b7b71226489458ebb5731eeadd8a, type: 3}
       propertyPath: m_Layer
@@ -18198,6 +18198,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Coin (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6736261155711079839, guid: 62f4bdc5bde30234a956171cbecfca72, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62f4bdc5bde30234a956171cbecfca72, type: 3}
 --- !u!4 &1630558995 stripped
@@ -24012,7 +24016,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7638711168747208458, guid: b058bbe5efde68a4c85a0ff94d43a95e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7638711168747208460, guid: b058bbe5efde68a4c85a0ff94d43a95e, type: 3}
       propertyPath: m_RootOrder
@@ -24181,7 +24185,11 @@ PrefabInstance:
       objectReference: {fileID: 1233953697}
     - target: {fileID: 1811046172555387235, guid: f9e6e0ed76b56fa488a8f5781ea8031a, type: 3}
       propertyPath: Enemy1CountPerWave.Array.data[3]
-      value: 30
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1811046172555387235, guid: f9e6e0ed76b56fa488a8f5781ea8031a, type: 3}
+      propertyPath: flowerCountPerWave.Array.data[1]
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1811046172555387235, guid: f9e6e0ed76b56fa488a8f5781ea8031a, type: 3}
       propertyPath: flowerCountPerWave.Array.data[3]
