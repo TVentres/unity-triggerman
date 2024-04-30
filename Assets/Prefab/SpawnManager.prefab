@@ -44,9 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fff2192f752dd488acb196e27dce24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  obj_caveBall: {fileID: 4027918502937747753, guid: 9d15b7b71226489458ebb5731eeadd8a, type: 3}
+  obj_flower: {fileID: 7638711168747208458, guid: 23dda1a267845e240a2f369371c0d681, type: 3}
   spawnPlanes:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  ArenaSpawnPlane: {fileID: 0}
+  currentWave: 0
+  totalWaves: 5
+  slugCountPerWave: 000000000300000006000000090000000c000000
+  flowerCountPerWave: 0100000002000000030000000500000008000000
