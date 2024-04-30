@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class EnemyDeath : MonoBehaviour
 {
+    //item to be spawned on death
     public GameObject item1;
+
     //public GameObject thisEnemy;
     public Transform enemyPos;
+
     // Start is called before the first frame update
     void update()
     {
@@ -19,12 +22,10 @@ public class EnemyDeath : MonoBehaviour
     // Update is called once per frame
     public void Die()
     {
-        GameObject obj = Instantiate(item1, Vector3.zero, Quaternion.identity, transform) as GameObject;
+        //Create item1 in this position
+        GameObject obj = Instantiate(item1, transform.position, transform.rotation) as GameObject;
         
-        obj.transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
-
-        // Now unassign the parent
-        obj.transform.SetParent(null);
+        //destroy the object attatched to this script (this enemy object)
         Object.Destroy(this.gameObject);
 
     }
