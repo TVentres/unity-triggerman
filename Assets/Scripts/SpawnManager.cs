@@ -7,7 +7,7 @@ using UnityEngine;
 public class SpawnManager : MonoBehaviour
 {
     //public GameObject enemy;
-    public GameObject obj_caveBall;
+    public GameObject obj_Enemy1;
     public GameObject obj_flower;
     
     HUDManager hudManager;
@@ -50,7 +50,7 @@ public class SpawnManager : MonoBehaviour
 		{
 			for (int i = 0; i < Enemy1CountPerWave[currentWave]; i++)
 			{
-				SpawnEnemy(Enemy1);
+				SpawnEnemy(obj_Enemy1);
 			}
 
 			for (int i = 0; i < flowerCountPerWave[currentWave]; i++)
