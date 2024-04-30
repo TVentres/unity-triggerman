@@ -19,6 +19,7 @@ public class SpawnManager : MonoBehaviour
     
     public int currentWave=0;
     public int totalWaves=5;
+	public int spawnHeight=0;
 
     //Next few arrays keep track of how many enemies will be in each wave. ie eslugCountPerWave[0] gives the number of slugs for wave 0
     public int[] Enemy1CountPerWave= {0, 3, 6, 9, 12};
@@ -78,7 +79,7 @@ public class SpawnManager : MonoBehaviour
         //Spawn game object
         GameObject obj = Instantiate(enemyObj) as GameObject;
         //Move spawned object to the random spot on the plane.
-        obj.transform.position = new Vector3((plane.position.x +randX), 3, (plane.position.z +randZ));
+        obj.transform.position = new Vector3((plane.position.x +randX), 3+spawnHeight, (plane.position.z +randZ));
 
     }
 
@@ -97,7 +98,7 @@ public class SpawnManager : MonoBehaviour
         //Spawn game object
         GameObject obj = Instantiate(enemyObj) as GameObject;
         //Move spawned object to the random spot on the plane.
-        obj.transform.position = new Vector3((plane.position.x +randX), 3, (plane.position.z +randZ));
+        obj.transform.position = new Vector3((plane.position.x +randX), 1+spawnHeight, (plane.position.z +randZ));
     }
 
 	void UpdateWaveText()

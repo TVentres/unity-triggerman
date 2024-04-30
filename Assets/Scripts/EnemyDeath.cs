@@ -17,5 +17,6 @@ public class EnemyDeath : MonoBehaviour
         // Now unassign the parent
         obj.transform.parent = null;
         Destroy(gameObject);
+        Destroy(this.transform.parent.gameObject);
     }
 }

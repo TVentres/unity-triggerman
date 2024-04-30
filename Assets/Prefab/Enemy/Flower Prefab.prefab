@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7638711168747208460}
   - component: {fileID: 7638711168747208461}
-  - component: {fileID: 7638711168747208463}
   - component: {fileID: 4431930854915925273}
   m_Layer: 7
   m_Name: Flower Prefab
@@ -49,19 +48,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db0f8a0e3d14b545b6751a0f16a1e99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &7638711168747208463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7638711168747208458}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a40fe38834a45f949a431b73469aa73e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  item1: {fileID: 0}
 --- !u!95 &4431930854915925273
 Animator:
   serializedVersion: 5
@@ -324,6 +310,7 @@ GameObject:
   - component: {fileID: 7638711169226841482}
   - component: {fileID: 7638711169226841483}
   - component: {fileID: 7638711169226841480}
+  - component: {fileID: 6140142142682214680}
   m_Layer: 7
   m_Name: Capsule
   m_TagString: Enemy
@@ -410,3 +397,16 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6140142142682214680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7638711169226841478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a40fe38834a45f949a431b73469aa73e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item1: {fileID: 3333410683128993966, guid: 63cd4ae0248ac2d47ba8a62147f16107, type: 3}
