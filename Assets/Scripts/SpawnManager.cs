@@ -21,7 +21,7 @@ public class SpawnManager : MonoBehaviour
     public int totalWaves=5;
 	public int spawnHeight=0;
 
-    //Next few arrays keep track of how many enemies will be in each wave. ie eslugCountPerWave[0] gives the number of slugs for wave 0
+    //Next few arrays keep track of how many enemies will be in each wave.
     public int[] Enemy1CountPerWave= {0, 3, 6, 9, 12};
     public int[] flowerCountPerWave = { 1, 2, 3, 5, 8 };
 
@@ -65,7 +65,7 @@ public class SpawnManager : MonoBehaviour
 		}
 	}
 	
-    //spawns enemy of givem type in a random location
+    //spawns enemy of givem type in the arena
     public void SpawnCenter(GameObject enemyObj)
     {
         //select plane
