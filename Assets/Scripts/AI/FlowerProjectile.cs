@@ -3,17 +3,21 @@ using UnityEngine;
 public class FlowerProjectile : MonoBehaviour
 {
 	public int lifeSpan = 2;
+	public int damage = 10;
+	HUDManager hudManager;
 
 	void Start()
 	{
 		Destroy(gameObject, lifeSpan);
 	}
 
-	private void OnCollisionEnter(Collision collider)
+	private void OnTriggerEnter(Collider other)
 	{
-		if (!collider.gameObject.CompareTag("Enemy"))
+		if (other.gameObject.CompareTag("Player"))
 		{
-			Destroy(gameObject); 
+			Destroy(gameObject);
+			HUDManager hudManager = FindObjectOfType<HUDManager>();
+			hudManager.TakeDamage(damage);
 		}
 	}	
 }
