@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8177806058040386301}
   - component: {fileID: 4738058810274331809}
   - component: {fileID: 7895604163850099298}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FlowerShot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,3 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a42db232162c9d44d856166aa5c6114d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lifeSpan: 2
+  damage: 10

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7638711168747208461}
   - component: {fileID: 7638711168747208463}
   - component: {fileID: 4431930854915925273}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Flower Prefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 7638711168912114215}
   - component: {fileID: 7638711168912114217}
   - component: {fileID: 7638711168912114214}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BadFlowerModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 7638711169213176005}
   - component: {fileID: 7638711169213176004}
   - component: {fileID: 7373520690739943028}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FlowerShoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 7638711169226841482}
   - component: {fileID: 7638711169226841483}
   - component: {fileID: 7638711169226841480}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Enemy
   m_Icon: {fileID: 0}
