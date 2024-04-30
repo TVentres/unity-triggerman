@@ -67,7 +67,7 @@ public class HUDManager : MonoBehaviour
 	{
 		PlayerHealth -= damageAmount; 
 
-		if (PlayerHealth < 0)
+		if (PlayerHealth <= 0)
 		{
 			PlayerHealth = 0;
 			LoadGameOver();

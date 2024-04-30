@@ -53,15 +53,4 @@ public class FlowerShoot : MonoBehaviour
 
 		canShoot = false;
 	}
-
-	void OnCollisionEnter(Collision collision)
-	{
-		Debug.Log("Collision detected!"); 
-		if (collision.gameObject.CompareTag("Player") || !collision.gameObject.CompareTag("Enemy"))
-		{
-			Debug.Log("Destroying projectile!"); 
-			Destroy(gameObject);
-		}
-	}
-
 }

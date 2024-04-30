@@ -9,6 +9,8 @@ public class CaveballAI : MonoBehaviour
     public float speed = 6.0f;
     public float size = 4.0f;
     private int hit=0;
+    public int damage;
+    HUDManager hudManager;
     // Update is called once per frame
 
     void Start()
@@ -28,7 +30,9 @@ public class CaveballAI : MonoBehaviour
      player.transform.position.z<=transform.position.z+size&&
      GameObject.Find("Player_01").GetComponent<TakeDamageTimer>().canHit)
      {
-        hit++;
+        HUDManager hudManager = FindObjectOfType<HUDManager>();
+		hudManager.TakeDamage(damage);
+		hit++;
         GameObject.Find("Player_01").GetComponent<TakeDamageTimer>().gotHit();
         Debug.Log("Hit: "+hit);
      }
