@@ -8,7 +8,7 @@ public class CaveballAI : MonoBehaviour
     public Vector3 playerPos;
     public float speed = 6.0f;
     public float size = 4.0f;
-    private int hit=0;
+    private int hit=10;
     public int damage;
     HUDManager hudManager;
     // Update is called once per frame
