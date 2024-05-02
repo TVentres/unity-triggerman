@@ -22,15 +22,6 @@ public class HUDManager : MonoBehaviour
 		coinCounterText.text = "Coins: " + coinCount;
 	}
 
-
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.N))
-		{
-			TakeDamage(10f);
-		}
-	}
-
 	public void AddCoin()
 	{
 		coinCount++;
