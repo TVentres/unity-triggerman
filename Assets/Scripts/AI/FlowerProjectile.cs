@@ -15,8 +15,8 @@ public class FlowerProjectile : MonoBehaviour
 	{
 		if (other.gameObject.CompareTag("Player"))
 		{
-
 			Destroy(gameObject);
+
 			HUDManager hudManager = FindObjectOfType<HUDManager>();
 			hudManager.TakeDamage(damage);
 
@@ -28,5 +28,6 @@ public class FlowerProjectile : MonoBehaviour
 			Destroy(gameObject);
 			Debug.Log("Object Hit! Destroying game object.");
 		}
-	}	
+		Destroy(gameObject);
+	}
 }
