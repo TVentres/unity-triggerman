@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FlowerShoot : MonoBehaviour
 {
-	public Rigidbody bulletPrefab;
+	public Rigidbody bullet;
 	public Transform firePoint;
 	public float delay = 1.0f;
 	public float velocity = 1000f;
@@ -22,11 +22,9 @@ public class FlowerShoot : MonoBehaviour
 	void Update()
 	{
 		Vector3 targetPosition = target.transform.position;
-
 		if (Physics.Linecast(transform.position, targetPosition) && canShoot)
 		{
 			delayTimer += Time.deltaTime;
-
 			if (delayTimer >= delay)
 			{
 				Shoot(targetPosition);
@@ -36,21 +34,15 @@ public class FlowerShoot : MonoBehaviour
 		{
 			canShoot = true;
 		}
-
 	}
 
 	void Shoot(Vector3 targetPosition)
 	{
 		ShootAudio.Play();
-
-		Rigidbody bulletInstance = Instantiate(bulletPrefab, firePoint.position, Quaternion.identity);
-
+		Rigidbody bulletInstance = Instantiate(bullet, firePoint.position, Quaternion.identity);
 		Vector3 direction = (targetPosition - transform.position).normalized;
-
 		bulletInstance.AddForce(direction * velocity * Time.deltaTime, ForceMode.Impulse);
-
 		delayTimer = 0.0f;
-
 		canShoot = false;
 	}
 }
