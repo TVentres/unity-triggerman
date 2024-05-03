@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3333410681526028660}
   - component: {fileID: 3333410681526028659}
   - component: {fileID: 3333410681526028658}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlusHorizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 3333410681790659834}
   - component: {fileID: 3333410681790659833}
   - component: {fileID: 3333410681790659832}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlusVertical
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +208,7 @@ GameObject:
   - component: {fileID: 3333410683128993968}
   - component: {fileID: 3333410683128993967}
   - component: {fileID: 3333410683128993972}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HealPickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}

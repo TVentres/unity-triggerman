@@ -10,13 +10,13 @@ public class EnemyDeath : MonoBehaviour
     // Update is called once per frame
     public void Die()
     {
-        GameObject obj = Instantiate(item1, Vector3.zero, Quaternion.identity, transform) as GameObject;
+        GameObject obj = Instantiate(item1, Vector3.zero, Quaternion.Euler(0,0,90), transform) as GameObject;
         
-        obj.transform.position = new Vector3(transform.position.x, 0.5f, transform.position.z);
+        obj.transform.position = new Vector3(transform.position.x, 1.0f, transform.position.z);
 
         // Now unassign the parent
         obj.transform.parent = null;
-        Destroy(gameObject);
         Destroy(this.transform.parent.gameObject);
+        Destroy(gameObject);
     }
 }
