@@ -16,6 +16,7 @@ public class EnemyDeath : MonoBehaviour
 
         // Now unassign the parent
         obj.transform.parent = null;
+        //kill the parent which should be the enemy object attatched to this model
         Destroy(this.transform.parent.gameObject);
         Destroy(gameObject);
     }
