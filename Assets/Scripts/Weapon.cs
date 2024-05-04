@@ -58,7 +58,7 @@ public class Weapon : MonoBehaviour
 
     void Shoot()
     {
-		Debug.Log("Shooting...");
+		//Debug.Log("Shooting...");
 		if (ShootAudio != null)
 		{
 			ShootAudio.Play();

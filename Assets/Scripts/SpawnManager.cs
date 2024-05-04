@@ -6,23 +6,29 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-	//public GameObject enemy;
-	public GameObject obj_slug;
-	public GameObject obj_flower;
-	HUDManager hudManager;
+    //public GameObject enemy;
+    public GameObject obj_Enemy1;
+    public GameObject obj_flower;
+    
+    HUDManager hudManager;
 	public AudioSource WaveChangeAudio;
 
-	//a list of spawn locations (These will be behind the spawn doors)
-	public Transform[] spawnPlanes = new Transform[2];
+    //a list of spawn locations (These will be behind the spawn doors)
+    public Transform[] spawnPlanes = new Transform[2];
+    public Transform ArenaSpawnPlane;
+    
+    //variables for keeping track of waves
+    public int currentWave=0;
+    public int totalWaves=5;
+	public int spawnHeight=0;
+    public float timeBetweenWaves=7.0f;
+    public float timer;
 
-	public int currentWave = 0;
-	public int totalWaves = 5;
+    //Next few arrays keep track of how many enemies will be in each wave.
+    public int[] Enemy1CountPerWave= {0, 3, 6, 9, 12};
+    public int[] flowerCountPerWave = { 1, 2, 3, 5, 8 };
 
-	//Next few arrays keep track of how many enemies will be in each wave. ie eslugCountPerWave[0] gives the number of slugs for wave 0
-	public int[] slugCountPerWave = { 0, 3, 6, 9, 12 };
-	public int[] flowerCountPerWave = { 1, 2, 3, 5, 8 };
-
-	void Start()
+    void Start()
 	{
 		hudManager = FindObjectOfType<HUDManager>();
 		UpdateWaveText();
@@ -30,57 +36,85 @@ public class SpawnManager : MonoBehaviour
 
 	// Update is called once per frame
 	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.M))
-		{
-			if (currentWave < totalWaves)
-			{
-				//Spawning();
-				SpawnWave();
-			}
-		}
-	}
-
+    {
+        //Manually spawn next wave (for dev use only)
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (currentWave < totalWaves)
+            {
+                //Spawning
+                SpawnWave();
+            }
+        }
+        // Update timer
+        timer+=Time.deltaTime;
+        
+        //If the time is up and there are more waves
+        if(timer >=timeBetweenWaves && currentWave < totalWaves)
+        {
+            SpawnWave();
+        }
+        
+    }
+	
+    // Everything that goes into one wave
 	public void SpawnWave()
 	{
 		if (currentWave < totalWaves)
 		{
-			for (int i = 0; i < flowerCountPerWave[currentWave]; i++)
+            Debug.Log($"Spawning wave {currentWave}");
+			for (int i = 0; i < Enemy1CountPerWave[currentWave]; i++)
 			{
-				SpawnEnemy(obj_slug);
+				SpawnEnemy(obj_Enemy1);
 			}
 
 			for (int i = 0; i < flowerCountPerWave[currentWave]; i++)
 			{
-				SpawnEnemy(obj_flower);
+				SpawnCenter(obj_flower);
 			}
 
 			currentWave++;
 			WaveChangeAudio.Play();
 			UpdateWaveText();
+            timer=0.0f;
 		}
 	}
+	
+    //spawns enemy of givem type in the arena
+    public void SpawnCenter(GameObject enemyObj)
+    {
+        //select plane
+        Transform plane = ArenaSpawnPlane;
+        //get collider for the spawnPlane
+        Collider spawnCollider = plane.GetComponent<Collider>();
+        //find a random x and z position in that plane
+        float randX = UnityEngine.Random.Range( -spawnCollider.bounds.extents.x , spawnCollider.bounds.extents.x );
+        float randZ = UnityEngine.Random.Range( -spawnCollider.bounds.extents.z , spawnCollider.bounds.extents.z );
 
-	//spawns enemy of givem type in a random location
-	public void SpawnEnemy(GameObject enemyObj)
-	{
-		//select a random plane from the available planes in the spawnPlanes array
-		Transform plane = spawnPlanes[UnityEngine.Random.Range(0, spawnPlanes.Length)];
+        //Spawn game object
+        GameObject obj = Instantiate(enemyObj) as GameObject;
+        //Move spawned object to the random spot on the plane.
+        obj.transform.position = new Vector3((plane.position.x +randX), 3+spawnHeight, (plane.position.z +randZ));
 
+    }
 
+    //spawns enemy of givem type in a random location
+    public void SpawnEnemy(GameObject enemyObj)
+    {
+        //select a random plane from the available planes in the spawnPlanes array
+        Transform plane = spawnPlanes[UnityEngine.Random.Range(0,spawnPlanes.Length)];
+        
+        //get collider for the spawnPlane
+        Collider spawnCollider = plane.GetComponent<Collider>();
+        //find a random x and z position in that plane
+        float randX = UnityEngine.Random.Range( -spawnCollider.bounds.extents.x , spawnCollider.bounds.extents.x );
+        float randZ = UnityEngine.Random.Range( -spawnCollider.bounds.extents.z , spawnCollider.bounds.extents.z );
 
-		//get collider for the spawnPlane
-		Collider spawnCollider = plane.GetComponent<Collider>();
-		//find a random x and z position in that plane
-		float randX = UnityEngine.Random.Range(-spawnCollider.bounds.extents.x, spawnCollider.bounds.extents.x);
-		float randZ = UnityEngine.Random.Range(-spawnCollider.bounds.extents.z, spawnCollider.bounds.extents.z);
-
-		//Spawn game object
-		GameObject obj = Instantiate(enemyObj) as GameObject;
-		//Move spawned object to the random spot on the plane.
-		obj.transform.position = new Vector3((plane.position.x + randX), 3, (plane.position.z + randZ));
-
-	}
+        //Spawn game object
+        GameObject obj = Instantiate(enemyObj) as GameObject;
+        //Move spawned object to the random spot on the plane.
+        obj.transform.position = new Vector3((plane.position.x +randX), 1+spawnHeight, (plane.position.z +randZ));
+    }
 
 	void UpdateWaveText()
 	{

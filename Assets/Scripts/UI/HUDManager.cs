@@ -22,15 +22,6 @@ public class HUDManager : MonoBehaviour
 		coinCounterText.text = "Coins: " + coinCount;
 	}
 
-
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.N))
-		{
-			TakeDamage(10f);
-		}
-	}
-
 	public void AddCoin()
 	{
 		coinCount++;
@@ -66,8 +57,8 @@ public class HUDManager : MonoBehaviour
 	public void TakeDamage(float damageAmount)
 	{
 		PlayerHealth -= damageAmount; 
-
-		if (PlayerHealth < 0)
+		Debug.Log($"Taking {damageAmount} damage");
+		if (PlayerHealth <= 0)
 		{
 			PlayerHealth = 0;
 			LoadGameOver();
