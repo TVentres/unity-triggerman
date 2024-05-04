@@ -37,24 +37,14 @@ public class SpawnManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-        //Manually spawn next wave (for dev use only)
-        if (Input.GetKeyDown(KeyCode.M))
+        //If there are more waves and either the time ran out or no enemies are found in scene
+        if ( currentWave < totalWaves && (timer>=timeBetweenWaves || !GameObject.FindWithTag("Enemy") || Input.GetKeyDown(KeyCode.M)) )
         {
-            if (currentWave < totalWaves)
-            {
-                //Spawning
-                SpawnWave();
-            }
+            //Spawning
+            SpawnWave();
         }
         // Update timer
         timer+=Time.deltaTime;
-        
-        //If the time is up and there are more waves
-        if(timer >=timeBetweenWaves && currentWave < totalWaves)
-        {
-            SpawnWave();
-        }
-        
     }
 	
     // Everything that goes into one wave
