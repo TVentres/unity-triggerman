@@ -199,7 +199,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: -2502602208236254628, guid: 8ae48f94a42b7fa4a9b2e5cbe94ef9da, type: 3}
   firePoint: {fileID: 7638711169213176005}
-  delay: 2
+  delay: 1.5
   velocity: 9000
   ShootAudio: {fileID: 7373520690739943028}
 --- !u!82 &7373520690739943028
