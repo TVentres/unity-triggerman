@@ -23873,7 +23873,7 @@ PrefabInstance:
       objectReference: {fileID: 7638711168747208458, guid: b058bbe5efde68a4c85a0ff94d43a95e, type: 3}
     - target: {fileID: 1811046172555387235, guid: f9e6e0ed76b56fa488a8f5781ea8031a, type: 3}
       propertyPath: totalWaves
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1811046172555387235, guid: f9e6e0ed76b56fa488a8f5781ea8031a, type: 3}
       propertyPath: spawnHeight
