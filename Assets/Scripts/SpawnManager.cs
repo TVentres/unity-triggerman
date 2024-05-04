@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -37,24 +37,33 @@ public class SpawnManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-        //Manually spawn next wave (for dev use only)
-        if (Input.GetKeyDown(KeyCode.M))
+        // Update timer
+        timer+=Time.deltaTime;
+        //Manually spawn next wave (for dev use only) as well as wave timer check
+        if (Input.GetKeyDown(KeyCode.M) || timer >=timeBetweenWaves)
         {
             if (currentWave < totalWaves)
             {
                 //Spawning
                 SpawnWave();
             }
+            else
+            {
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                Debug.Log("Number of enemies: " + enemies.Length);
+                for (int i = 0; i < enemies.Length; i++)
+                {
+                    Debug.Log("Enemy " + i + " position: " + enemies[i].transform.position);
+                }
+                if (enemies.Length == 0 && currentWave == totalWaves)
+                {
+                    SceneManager.LoadScene("WinScene");
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true;
+                }
+            }
         }
-        // Update timer
-        timer+=Time.deltaTime;
-        
-        //If the time is up and there are more waves
-        if(timer >=timeBetweenWaves && currentWave < totalWaves)
-        {
-            SpawnWave();
-        }
-        
+            
     }
 	
     // Everything that goes into one wave
