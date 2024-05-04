@@ -13,20 +13,21 @@ public class FlowerProjectile : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.CompareTag("Player"))
+		if (other.gameObject.CompareTag("Player") && GameObject.Find("Player_01").GetComponent<TakeDamageTimer>().canHit)
 		{
 			Destroy(gameObject);
 
 			HUDManager hudManager = FindObjectOfType<HUDManager>();
 			hudManager.TakeDamage(damage);
-
-			Debug.Log("Player Hit! Destroying game object.");
+			GameObject.Find("Player_01").GetComponent<TakeDamageTimer>().gotHit();
+			
+			//Debug.Log("Player Hit! Destroying game object.");
 
 		}
 		else if (!other.gameObject.CompareTag("Enemy"))
 		{
 			Destroy(gameObject);
-			Debug.Log("Object Hit! Destroying game object.");
+			//Debug.Log("Object Hit! Destroying game object.");
 		}
 		Destroy(gameObject);
 	}

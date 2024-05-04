@@ -34,7 +34,7 @@ public class CaveballAI : MonoBehaviour
 		hudManager.TakeDamage(damage);
 		hit++;
         GameObject.Find("Player_01").GetComponent<TakeDamageTimer>().gotHit();
-        Debug.Log("Hit: "+hit);
+        //Debug.Log("Hit: "+hit);
      }
      //if(player.transform.position.x==transform.position.x&&player.transform.position.z==transform.position.z)
         //Debug.Log("Hit!!");

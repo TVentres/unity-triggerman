@@ -22,7 +22,6 @@ public class Projectile : MonoBehaviour
  		if (other.gameObject.CompareTag("Enemy"))
         {
  			//Call EnemyDeath Script
-			Debug.Log("This Ran");
             other.gameObject.GetComponent<EnemyDeath>().Die();
         }
 		Destroy(gameObject);

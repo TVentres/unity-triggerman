@@ -57,7 +57,7 @@ public class HUDManager : MonoBehaviour
 	public void TakeDamage(float damageAmount)
 	{
 		PlayerHealth -= damageAmount; 
-
+		Debug.Log($"Taking {damageAmount} damage");
 		if (PlayerHealth <= 0)
 		{
 			PlayerHealth = 0;

@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeSpan: 2
-  damage: 10
+  damage: 5
 --- !u!54 &-2502602208236254628
 Rigidbody:
   m_ObjectHideFlags: 0

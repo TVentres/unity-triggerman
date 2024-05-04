@@ -6,7 +6,7 @@ public class FlowerShoot : MonoBehaviour
 {
 	public Rigidbody bullet;
 	public Transform firePoint;
-	public float delay = 1.0f;
+	public float delay = 2.0f;
 	public float velocity = 1000f;
 
 	private GameObject target;
@@ -38,11 +38,12 @@ public class FlowerShoot : MonoBehaviour
 
 	void Shoot(Vector3 targetPosition)
 	{
+		//Debug.Log("shooting");
+		canShoot = false;
 		ShootAudio.Play();
 		Rigidbody bulletInstance = Instantiate(bullet, firePoint.position, Quaternion.identity);
 		Vector3 direction = (targetPosition - transform.position).normalized;
 		bulletInstance.AddForce(direction * velocity * Time.deltaTime, ForceMode.Impulse);
 		delayTimer = 0.0f;
-		canShoot = false;
 	}
 }

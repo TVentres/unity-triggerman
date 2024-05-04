@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TakeDamageTimer : MonoBehaviour
 {
-    public float timeBetweenHits=3.0f;
+    public float timeBetweenHits=2.0f;
     public float timer=0.0f;
     public bool canHit=true;
     // Start is called before the first frame update

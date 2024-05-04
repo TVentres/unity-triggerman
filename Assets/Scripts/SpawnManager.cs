@@ -17,9 +17,12 @@ public class SpawnManager : MonoBehaviour
     public Transform[] spawnPlanes = new Transform[2];
     public Transform ArenaSpawnPlane;
     
+    //variables for keeping track of waves
     public int currentWave=0;
     public int totalWaves=5;
 	public int spawnHeight=0;
+    public float timeBetweenWaves=7.0f;
+    public float timer;
 
     //Next few arrays keep track of how many enemies will be in each wave.
     public int[] Enemy1CountPerWave= {0, 3, 6, 9, 12};
@@ -34,6 +37,7 @@ public class SpawnManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
+        //Manually spawn next wave (for dev use only)
         if (Input.GetKeyDown(KeyCode.M))
         {
             if (currentWave < totalWaves)
@@ -42,6 +46,15 @@ public class SpawnManager : MonoBehaviour
                 SpawnWave();
             }
         }
+        // Update timer
+        timer+=Time.deltaTime;
+        
+        //If the time is up and there are more waves
+        if(timer >=timeBetweenWaves && currentWave < totalWaves)
+        {
+            SpawnWave();
+        }
+        
     }
 	
     // Everything that goes into one wave
@@ -49,6 +62,7 @@ public class SpawnManager : MonoBehaviour
 	{
 		if (currentWave < totalWaves)
 		{
+            Debug.Log($"Spawning wave {currentWave}");
 			for (int i = 0; i < Enemy1CountPerWave[currentWave]; i++)
 			{
 				SpawnEnemy(obj_Enemy1);
@@ -62,6 +76,7 @@ public class SpawnManager : MonoBehaviour
 			currentWave++;
 			WaveChangeAudio.Play();
 			UpdateWaveText();
+            timer=0.0f;
 		}
 	}
 	
