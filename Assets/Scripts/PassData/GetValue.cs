@@ -11,6 +11,6 @@ public class GetValue : MonoBehaviour
     public void Start()
     {
         int coinValue = StaticData.ValueToKeep;
-        myText.text = "You Earned " + coinValue + " Points!";
+        myText.text = "You Collected " + coinValue + " Coins!";
     }
 }

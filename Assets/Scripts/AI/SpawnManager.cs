@@ -54,17 +54,25 @@ public class SpawnManager : MonoBehaviour
             {
                 GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
                 //Debug.Log("Number of enemies: " + enemies.Length);
+
+                // If all waves are cleared we give the win screen
                 if (enemies.Length == 0 && currentWave == totalWaves)
                 {
-                    int CoinToKeep = coinCount;
-                    StaticData.ValueToKeep = CoinToKeep;
-                    SceneManager.LoadScene("WinScene");
-                    Cursor.lockState = CursorLockMode.None;
-                    Cursor.visible = true;
+                    Invoke("Win", 5);
                 }
             }
         }
             
+    }
+
+    // Switch to win scene
+    void Win()
+    {
+        int CoinToKeep = coinCount;
+        StaticData.ValueToKeep = CoinToKeep;
+        SceneManager.LoadScene("WinScene");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 	
     // Everything that goes into one wave
