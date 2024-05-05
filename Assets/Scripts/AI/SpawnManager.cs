@@ -23,6 +23,7 @@ public class SpawnManager : MonoBehaviour
 	public int spawnHeight=0;
     public float timeBetweenWaves=7.0f;
     public float timer;
+    public int coinCount;
 
     //Next few arrays keep track of how many enemies will be in each wave.
     public int[] Enemy1CountPerWave= {0, 3, 6, 9, 12};
@@ -47,6 +48,7 @@ public class SpawnManager : MonoBehaviour
             {
                 //Spawn a wave 
                 SpawnWave();
+                Debug.Log(coinCount);
             }
             else
             {
@@ -54,6 +56,8 @@ public class SpawnManager : MonoBehaviour
                 //Debug.Log("Number of enemies: " + enemies.Length);
                 if (enemies.Length == 0 && currentWave == totalWaves)
                 {
+                    int CoinToKeep = coinCount;
+                    StaticData.ValueToKeep = CoinToKeep;
                     SceneManager.LoadScene("WinScene");
                     Cursor.lockState = CursorLockMode.None;
                     Cursor.visible = true;

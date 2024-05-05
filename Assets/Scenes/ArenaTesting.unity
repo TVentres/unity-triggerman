@@ -4187,6 +4187,7 @@ MonoBehaviour:
   rotation: 0.5
   HealValue: 10
   PickupAudio: {fileID: 387995316}
+  stayingTime: 9
 --- !u!136 &387995312
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11543,7 +11544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1071507134}
   m_Layer: 0
-  m_Name: Audiance
+  m_Name: Audience
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15815,7 +15816,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6199608427170378395, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -500
+      value: -400
       objectReference: {fileID: 0}
     - target: {fileID: 6199608427170378395, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -15827,7 +15828,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6199608427170983747, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 551
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 6199608427170983747, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -15839,7 +15840,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6199608427628418986, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 546.9
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 6199608427628418986, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -15851,7 +15852,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6199608428395695810, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 457.00003
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 6199608428395695810, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -15881,6 +15882,10 @@ PrefabInstance:
       propertyPath: HealthSlider
       value: 
       objectReference: {fileID: 1401467692}
+    - target: {fileID: 6199608429114309260, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
+      propertyPath: spawnManager
+      value: 
+      objectReference: {fileID: 1945971211}
     - target: {fileID: 6199608429114309260, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
       propertyPath: waveCounterText
       value: 
@@ -15971,7 +15976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6199608429135619639, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -550
+      value: -450
       objectReference: {fileID: 0}
     - target: {fileID: 6199608429135619639, guid: ea83e0715abe1b24a9c53ae8ed9ba55d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -21275,6 +21280,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1945971211 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1811046172555387235, guid: f9e6e0ed76b56fa488a8f5781ea8031a, type: 3}
+  m_PrefabInstance: {fileID: 1811046174252659363}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1945971209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3fff2192f752dd488acb196e27dce24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1954052306
 GameObject:
   m_ObjectHideFlags: 0
@@ -23776,7 +23792,7 @@ PrefabInstance:
       objectReference: {fileID: 7638711168747208458, guid: b058bbe5efde68a4c85a0ff94d43a95e, type: 3}
     - target: {fileID: 1811046172555387235, guid: f9e6e0ed76b56fa488a8f5781ea8031a, type: 3}
       propertyPath: totalWaves
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1811046172555387235, guid: f9e6e0ed76b56fa488a8f5781ea8031a, type: 3}
       propertyPath: spawnHeight

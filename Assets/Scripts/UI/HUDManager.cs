@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class HUDManager : MonoBehaviour
 {
 	public Text coinCounterText;
-	private int coinCount = 0;
+	public int coinCount;
 
 	private float MaxHealth = 100f;
 	private float PlayerHealth = 100f;
@@ -16,16 +16,20 @@ public class HUDManager : MonoBehaviour
 	public Text dashCounterText;
 	public Text waveCounterText;
 
+	 public SpawnManager spawnManager;
+
 	void Start()
 	{
 		HealthSlider.value = 50f;
 		coinCounterText.text = "Coins: " + coinCount;
 	}
+	
 
 	public void AddCoin()
 	{
 		coinCount++;
 		coinCounterText.text = "Coins: " + coinCount;
+		spawnManager.coinCount = coinCount;
 	}
 
 	public void Heal(float HealAmount)
