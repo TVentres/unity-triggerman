@@ -8,8 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: c829bfba945ba5a4cac91c8f7065b40a
-  - enabled: 1
-    path: Assets/Scenes/SampleMenuScene.unity
+  - enabled: 0
+    path: Assets/Scenes/Testing Scenes/SampleMenuScene.unity
     guid: 70ff852df9dc17a4dba63643c9978384
   - enabled: 1
     path: Assets/Scenes/ArenaTesting.unity
@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: c85fa35209a93b846af633c447af1a68
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: ea0170c991aff97438e033380b06390a
   m_configObjects: {}

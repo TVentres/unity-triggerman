@@ -13,13 +13,15 @@ public class FlowerProjectile : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.CompareTag("Player") && GameObject.Find("Player_01").GetComponent<TakeDamageTimer>().canHit)
-		{
+		//if the projectile is colliding with a player then player takes damage
+		if (other.gameObject.CompareTag("Player") ) 
+		{// add && GameObject.Find("Player_01").GetComponent<TakeDamageTimer>().canHit if you want i frames for flower shots
+			//projectile deletes itself
 			Destroy(gameObject);
-
+			//update player health
 			HUDManager hudManager = FindObjectOfType<HUDManager>();
 			hudManager.TakeDamage(damage);
-			GameObject.Find("Player_01").GetComponent<TakeDamageTimer>().gotHit();
+			//GameObject.Find("Player_01").GetComponent<TakeDamageTimer>().gotHit();// if you want i frames for flower shots 
 			
 			//Debug.Log("Player Hit! Destroying game object.");
 

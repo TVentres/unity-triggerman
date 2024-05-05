@@ -8,11 +8,12 @@ public class HealPickup : MonoBehaviour
 	public float rotation = 0.5f;
 	public float HealValue = 10f;
 	public AudioSource PickupAudio;
+	public float stayingTime = 9.0f;
 
 	// Start is called before the first frame update
 	void Start()
 	{
-
+		Destroy(gameObject, stayingTime);
 	}
 
 	// Update is called once per frame

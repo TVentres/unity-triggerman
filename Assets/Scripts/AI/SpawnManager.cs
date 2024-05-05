@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -23,6 +23,7 @@ public class SpawnManager : MonoBehaviour
 	public int spawnHeight=0;
     public float timeBetweenWaves=7.0f;
     public float timer;
+    public int coinCount;
 
     //Next few arrays keep track of how many enemies will be in each wave.
     public int[] Enemy1CountPerWave= {0, 3, 6, 9, 12};
@@ -37,24 +38,41 @@ public class SpawnManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
     {
-        //Manually spawn next wave (for dev use only)
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-            if (currentWave < totalWaves)
-            {
-                //Spawning
-                SpawnWave();
-            }
-        }
         // Update timer
         timer+=Time.deltaTime;
-        
-        //If the time is up and there are more waves
-        if(timer >=timeBetweenWaves && currentWave < totalWaves)
+        // If either the time ran out or no enemies are found in scene
+        if (Input.GetKeyDown(KeyCode.M) || timer >=timeBetweenWaves || !GameObject.FindWithTag("Enemy"))
         {
-            SpawnWave();
+            //If we're not already at the last wave
+            if (currentWave < totalWaves)
+            {
+                //Spawn a wave 
+                SpawnWave();
+                Debug.Log(coinCount);
+            }
+            else
+            {
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+                //Debug.Log("Number of enemies: " + enemies.Length);
+
+                // If all waves are cleared we give the win screen
+                if (enemies.Length == 0 && currentWave == totalWaves)
+                {
+                    Invoke("Win", 5);
+                }
+            }
         }
-        
+            
+    }
+
+    // Switch to win scene
+    void Win()
+    {
+        int CoinToKeep = coinCount;
+        StaticData.ValueToKeep = CoinToKeep;
+        SceneManager.LoadScene("WinScene");
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 	
     // Everything that goes into one wave
